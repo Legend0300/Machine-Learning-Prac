@@ -24,15 +24,13 @@ X = games_data[:, 1:]
 y_2d = games_data[:, :1]
 y = y_2d.reshape(-1)
 
-scaler = StandardScaler()
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-X_norm = scaler.fit_transform(X_train)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-sgdr = SGDRegressor()
-sgdr.fit(X_norm, y_train)
+sgdr = LinearRegression()
+sgdr.fit(X_train, y_train)
 
 
-print(str(X_train) + " test data: " + str(X_test) + str(y_test))
+print(" test data: " + str(y_test))
 
 y_pred_sgd = sgdr.predict(X_test)
 print("Predicted prices:")
