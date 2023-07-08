@@ -17,12 +17,17 @@ print(X_train)
 print("y_train:")
 print(y_train)
 
-sgdr = LogisticRegression(penalty='none')
+log = LogisticRegression(penalty='none')
 
 
 
-sgdr.fit(X_train , y_train)
 
-print(sgdr.predict([[1, 1]]))
+log.fit(X_train , y_train)
 
+first = int(input("please enter the first bianry number: "))
+
+second = int(input("please enter the second bianry number: "))
+
+
+print(log.predict([[first, second]])[0])
 
